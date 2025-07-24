@@ -13,6 +13,7 @@ require_once './models/ProductModel.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
+// Nếu có act thì sẽ gọi hàm tương ứng với act đó
 
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
@@ -20,5 +21,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     '/'=>(new ProductController())->Home(),
+    // Trang sản phẩm
+    'sanpham'=>(new ProductController())->Product(),
 
 };

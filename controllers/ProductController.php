@@ -15,4 +15,24 @@ class ProductController
         $thoiTiet = "Hôm nay trời có vẻ là mưa";
         require_once './views/trangchu.php';
     }
+
+    public function getAllProduct()
+    {
+        $products = $this->modelProduct->getAllProduct();
+        require_once './views/product/list.php';
+    }
+
+    public function getHotProducts()
+    {
+        return $this->modelProduct->getHotProducts();
+    }
+
+    public function Product()
+    {
+        // Lấy danh sách sản phẩm hot
+        $hotProducts = $this->getHotProducts();
+
+        // Truyền dữ liệu vào view
+        require_once './views/sanpham.php';
+    }
 }
